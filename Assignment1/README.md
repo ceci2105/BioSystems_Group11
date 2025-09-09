@@ -15,17 +15,18 @@ This analysis reports the minimal and maximal flux values possible for each reac
 Below is an example:
 
 FVA minimal and maximal fluxes
-          minimum    maximum
-PFK      0.334677  11.153556
-PFL      0.000000   1.000000
-PGI     -0.085323   9.020351
-PGK    -17.596002  -0.879355
-PGL      0.000000   4.522388
-ACALD   -1.160000   0.000000
-AKGt2r  -3.100000   0.000000
-PGM    -17.038932  -0.879355
-PIt2r    0.000000   1.783077
-ALCD2x  -1.160000   0.000000
+| Reaction | Minimum Flux | Maximum Flux |
+|----------|-------------|-------------|
+| PFK      | 0.334677    | 11.153556   |
+| PFL      | 0.000000    | 1.000000    |
+| PGI      | -0.085323   | 9.020351    |
+| PGK      | -17.596002  | -0.879355   |
+| PGL      | 0.000000    | 4.522388    |
+| ACALD    | -1.160000   | 0.000000    |
+| AKGt2r   | -3.100000   | 0.000000    |
+| PGM      | -17.038932  | -0.879355   |
+| PIt2r    | 0.000000    | 1.783077    |
+| ALCD2x   | -1.160000   | 0.000000    |
 
 From the FVA results we see that most reactions have a minimum flux of 0, meaning they can be inactive depending on the network solution.  
 We can notice that reversible reactions show symmetric ranges, while irreversible reactions are constrained to positive or negative values only.  
