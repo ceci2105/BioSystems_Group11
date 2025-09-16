@@ -12,7 +12,7 @@ In this part we extend the SIRD model analysis to compare two different scenario
 - High Transmission: β = 0.4, μ = 0.02  
 - Low Transmission: β = 0.2, μ = 0.005  
 
-For both scenarios, the simulation is run across the same set of recovery rates (γ) and the results of each run are stored in the 'results` dataframe, including the same metrics as in Part 1: ['gamma', 'R0', 'peak_infected', 'peak_day', 'total_deaths']. 
+For both scenarios, the simulation is run across the same set of recovery rates (γ) and the results of each run are stored in the 'results' dataframe, including the same metrics as in part 1: ['gamma', 'R0', 'peak_infected', 'peak_day', 'total_deaths'].
 An additional column 'scenario` is added to distinguish between the two cases.
 
 The outcomes are then visualized in a set of comparative plots that show how each metric changes with the recovery rate, allowing a direct comparison of High vs Low 
