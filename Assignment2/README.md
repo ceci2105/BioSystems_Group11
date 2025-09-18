@@ -23,6 +23,13 @@ making it significantly worse for public health. The Low Transmission scenario s
 transmission rates.
 
 # Part 3: Policy Recommendations
+In the last part, we analyzed how to increase the recovery rate using different methods. First, we examined how different values of γ impact the number of deaths and the peak of infections. We concluded that as γ increases, the peak day of infections also occurs earlier, while the total number of deaths decreases significantly.
 
+Next, we tested the effect of increasing γ by 50%, which led to a substantial reduction in deaths, to be more specific, if the recovery rate is 0.375, the number of total deaths is 6. 
+
+After this, we considered possible medical solutions to increase the recovery rate. Initially, we thought of vaccinations, but we realized that they do not directly affect the recovery rate. Instead, they prevent infection by moving individuals from susceptible(S) to recovered(R). A more suitable solution would be antiviral treatments, which directly improve the recovery rate by speeding up recovery from the infection.
 
 # Conclusions
+Through these exercises, we have learned how simple models like SIR and SIRD can capture the key dynamics of an epidemic and help us understand which factors drive its course. The parameters β (transmission), γ (recovery), and μ (mortality) determine how fast a disease spreads, how long individuals remain infectious, and how many ultimately recover or die. By experimenting with different values, we saw how increasing the recovery rate reduces the peak of infections, lowers total deaths, and shortens the epidemic duration.
+
+We also learned that real-world interventions can be interpreted as changes in model parameters, for example, vaccination reduces susceptibility, antivirals increase the recovery rate, and lockdowns reduce contact rates. At the same time, the exercises highlighted the limitations of these models, such as: they assume homogeneous mixing, constant parameters, and no spatial or social structure.
