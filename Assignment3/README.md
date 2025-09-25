@@ -82,9 +82,10 @@ Analysis of the basin shows that proliferation is dominant (80%), while apoptosi
 
 # Final Questions:
 1. Which mutation is most dangerous and why? Provide quantitative evidence.
-
+Answer: As we can see in our experiments, especially in Mutation A, the most dangerous mutation is the loss of p53, because it is a central hub in the cell cycle checkpoint network and is essential for triggering apoptosis when DNA damage occurs. Quantitatively, Boolean network simulations show that without p53 the number of stable steady states representing healthy cell arrest or apoptosis is reduced, and the network instead shifts towards proliferative attractors. Compared to the other mutations, p53 loss removes the entire safeguard(called as "safety switch") against uncontrolled division, making it the most catastrophic mutation. We can even see looking at the attractor basin that the total share of initial conditions result in Damaged cell Proliferation to 50%.
 
 2. Explain the role of feedback loops (e.g., MYC → MDM2 → p53)
-
+Answer: Feedback loops regulate stability and dynamics in gene regulatory networks. In the MYC → MDM2 → p53 loop, MYC activates MDM2, which degrades p53, while p53 normally suppresses MYC-driven proliferation. This forms a negative feedback loop that balances cell growth and checkpoint activation. When MYC is overexpressed, the loop is overwhelmed, p53 cannot properly respond, and the result is uncontrolled proliferation.
 
 3. What are the limitations of this Boolean network model? Discuss 3 specific limitations.
+Answer: After experimenting in this tutorial, we noticed that a Boolean network model has several important limitations. First, it reduces gene activity to binary ON/OFF states, which ignores intermediate expression levels and partial activity. Second, it usually assumes synchronous updates of all nodes, whereas in reality gene regulation occurs with time delays and asynchronously, leading to different dynamics. Third, it ignores stochasticity and cellular context, meaning it cannot capture noise in gene expression or pathway cross-talk, both of which are critical in real biological systems.
