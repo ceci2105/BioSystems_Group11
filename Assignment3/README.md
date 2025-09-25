@@ -36,25 +36,49 @@ Looking at the attractor basin we can see that Damaged cell proliferation subsit
 
 
 # Part 3: Mutation B - Scenario Analysis & Attractor Analysis
-1. Scenario Analysis: 
+This mutation amplifies MYC, an oncogene that stimulates uncontrolled cell growth. Under physiological conditions, MYC activity is tightly regulated by p53 and p21, but the amplification makes it permanently active, bypassing normal checkpoints.
+
+1. Scenario Analysis: ![Alt text](scenariosMB.png)
+We can see how in all three cases the cell proliferates normally.
+This occurs because MYC is artificially locked ON, which promotes CDK2 activity and cell cycle progression, even in the presence of p53.
+
+The fundamental difference compared to the loss of p53 (mutation A) is that in this case, p53 is still present and potentially active, but its influence is eliminated by the constant MYC signaling. This allows p53 to be expressed, but its effects are overridden.
 
 
-2. Attractor Analysis: 
+2. Attractor Analysis:  ![Alt text](attractorsMB.png) 
+This mutation contains four attractors, in which we observe two biologically interpretable states:
+The first is healthy proliferation (Attractor 1), while the second is growth despite DNA damage (Attractor 3, oncogenic).
+Additionally, there is a DNA damage-induced apoptosis attractor (Attractor 4) and an unusual "conflict" attractor (Attractor 2) in which p53 is active but no effect is observed.
 
+
+![Alt text](attractorBasinMB.png)
+Each attractor has the same 25% probability, meaning that oncogenic proliferation now has a 25% chance of dominating the initial conditions. Importantly, apoptosis remains possible, but its probability is reduced compared to the wild-type network, while abnormal proliferative states gain more space, making the cell more unstable.
 
 # Part 4: Mutation C - Scenario Analysis & Attractor Analysis
-1. Scenario Analysis: 
+This mutation forces MDM2, a negative regulator of p53, to be constantly overexpressed. Because MDM2 suppresses p53, this creates a scenario in which the cell's perception of stress is misperceived, no longer triggering a defense response.
+1. Scenario Analysis: ![Alt text](scenariosMC.png)
+As expected, in all three scenarios, the cell proliferates. Even with DNA damage, p53 is unable to effectively trigger cell death, so growth continues unchecked.
 
 
-2. Attractor Analysis: 
+2. Attractor Analysis: ![Alt text](attractorsMC.png) 
+We can again observe four attractors, very similar to the case of MYC amplification:
+Attractor 1 represents healthy proliferation, while attractor 3 represents growth despite DNA damage. Next, attractor 4 represents DNA damage-induced apoptosis, and finally, attractor 2 is a conflict state with unusual p53 activity. We can therefore deduce that apoptosis has not completely disappeared, but has been weakened.
 
 
+
+![Alt text](attractorBasinMC.png)
+Each attractor has the same 25% weight as MYC amplification, this mutation creates a strong propensity toward proliferation and cancer-like steady states, while reducing the robustness of apoptosis.
 # Part 5: Mutation D - Scenario Analysis & Attractor Analysis
-1. Scenario Analysis: 
+This mutation eliminates p21, an important effector of p53. Normally, p21 arrests the cell cycle by inhibiting CDK2, acting as a brake. Without p21, even if p53 is intact, growth control is partially compromised.
+1. Scenario Analysis: ![Alt text](scenariosMD.png)
+We can observe how the healthy cell continues to proliferate, while the stressed cell undergoes apoptosis, since p53 is still present and can be activated by DNA damage.
+Finally, we see how the oncogene-hijacked cell proliferates despite DNA damage, highlighting how the loss of p21 weakens growth suppression.
 
+2. Attractor Analysis: ![Alt text](attractorsMD.png) 
+We identified three actuators, the first is that of healthy proliferation (attractor 1), the second is that of apoptosis induced by DNA damage (attractor 2) and the third is growth despite DNA damage (attractor 3).
 
-2. Attractor Analysis: 
-
+![Alt text](attractorBasinMD.png)
+Analysis of the basin shows that proliferation is dominant (80%), while apoptosis is much less frequent (15%). Oncogenic proliferation does exist, but it is a minor attractant. Therefore, p21 knockout partially compromises cell cycle control but does not completely disable the apoptotic safeguard.
 
 # Final Questions:
 1. Which mutation is most dangerous and why? Provide quantitative evidence.
