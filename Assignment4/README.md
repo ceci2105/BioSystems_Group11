@@ -1,1 +1,41 @@
+# Part 1
+When we run the model for 4 hours, the red pathogen remains essentially localized in its starting position but releases a substance that diffuses into the lamina. This substance causes a rapid reduction in the stability of the green cells' cell walls, causing the cells to visually change from a bright green to a yellow/olive/brown color. The color change progressively extends across a large portion of the tissue, already evident after the first hour and becoming widespread after a few hours. Therefore, the damage does not occur through physical invasion of the pathogen, but rather through the diffusion of the substance, which weakens the cells from a distance.
 
+Below we can see how the model changes in 4 hours:
+
+t=0:
+![Alt text](time0.png)
+First, we notice how the cells are a bright, uniform green, indicating healthy tissue. Initially, the red pathogen is present as a small, localized element on the left edge, and we see no changes in cells distant from the pathogen.
+
+t=1
+![Alt text](time1.png)
+After an hour, we notice how the cells become more yellowish, indicating that the released substance is spreading and is already decreasing the stability of the walls, while the pathogen remains in the same position.
+
+t=2:
+![Alt text](time2.png)
+The color has become a little darker than before, showing that the diffusion of the chemical factor is spreading.
+
+t=3:
+![Alt text](time3.png)
+Much of the central tissue has turned brown, and although cell boundaries remain visible, we know the tissue is damaged according to the color scale of the pattern.
+
+t=4:
+![Alt text](time4.png)
+And finally we see how most of the simulated area has been damaged by the pathogen.
+
+Analyzing the images as a whole, we can find a strong change between t=0 and t=1, where almost the entire area turns light brown, and then from t=2 onwards the color remains more or less the same. This happens because initially there is a strong gradient between the pathogenic cell and the surrounding tissue, but after a while a dynamic equilibrium is established.
+
+# Part 2
+
+The `CellHouseKeeping` function defines the behavior rules for each cell during the simulation. Specifically, it controls the growth of the pathogen cell and how the chemical travels through surrounding cells.
+
+First, if the cell is type 2, i.e., the red pathogen, its target area is slightly enlarged (`EnlargeTargetArea(2)`), simulating the pathogen's growth.
+
+Next, the code sets a baseline length for each cell's wall elements, if they don't already have one. This ensures that the structural properties of the cell walls are consistently initialized.
+
+The most important part is the cell wall weakening mechanism. The function controls the level of the chemical released by the pathogen (`patho_chem_level`). If this level is high enough and the cell is not a pathogen, then:
+
+- The cell can grow (`SetCellVeto(false)`),
+- The cell wall stiffness is reduced (`setStiffness(stiffness_inf)`), with a reduction proportional to the amount of the pathogenic chemical present.
+
+If the level of the chemical is too low, the cell wall stiffness is maintained at its normal value and the cell is prevented from growing (`SetCellVeto(true)`).
