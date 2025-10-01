@@ -39,3 +39,9 @@ The most important part is the cell wall weakening mechanism. The function contr
 - The cell wall stiffness is reduced (`setStiffness(stiffness_inf)`), with a reduction proportional to the amount of the pathogenic chemical present.
 
 If the level of the chemical is too low, the cell wall stiffness is maintained at its normal value and the cell is prevented from growing (`SetCellVeto(true)`).
+
+# Part 3
+
+ Take a look at the cell to cell transport and cell dynamics and complete the sketch.
+
+
