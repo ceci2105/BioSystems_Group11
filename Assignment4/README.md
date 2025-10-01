@@ -7,17 +7,25 @@ t=0:
 ![Alt text](time0.png)
 First, we notice how the cells are a bright, uniform green, indicating healthy tissue. Initially, the red pathogen is present as a small, localized element on the left edge, and we see no changes in cells distant from the pathogen.
 
+
+
 t=1
 ![Alt text](time1.JPG)
 In this image, we see how, immediately after infection, the pathogen began spreading its chemical. The closest cells are already showing a color change toward brown, while the rest of the tissue remains green.
+
+
 
 t=2:
 ![Alt text](time2.JPG)
 After two hours, the pathogen began to enter the plant tissue, weakening even more surrounding cells.
 
+
+
 t=3:
 ![Alt text](time3.JPG)
 Now we can notice that the pathogen, in addition to penetrating even further into the plant tissue, has also grown larger, making more and more space between the cells.
+
+
 
 t=4:
 ![Alt text](time4.JPG)
