@@ -51,27 +51,35 @@ Adjust the diffusion coefficient for the pathogen’s chemical (decrease by a fa
 
 First, we look at the D parameter, which is the difussion rate, and see these values: 1e-05,4,0,0,0,0,0,0,0,0,0,0,0,0,0. Since in our code, we only use D[0], which is the diffusion rate for chemical 1, we will decrease it by 10.
 ![Alt text](Divide10_1.png)
+
 Compared to the images from Part1, we can clearly notice that the difussion is much more slower now. In the first image we can see the tissue at time = 1:00:00.
 
 ![Alt text](Divide10_2.png)
+
 Next image is captured at time = 2:00:00, where we can see that it's not that much of a difference between this and the first image.
 
 ![Alt text](Divide10_3.png)
+
 Then, we can see at time = 3:00:00, that the pathogen (red) grows a bit bigger, but still, the difussion is slow, only a few of the cell were targeted.
 
 ![Alt text](Divide10_4.png)
+
 Now, at time = 4:00:00, we notice that the chemical spread more, but still not comparble to the normal diffusion rate.
 
 However, if we multiply the value of the diffusion rate by 10, we can observe a bigger difference.
 
 ![Alt text](Multiply10_1.png)
+
 At t = 1:00:00, a much larger region around the pathogen showed reduced wall stability compared to the baseline, which means that the difussion was really fast.
 
 ![Alt text](Multiply10_2.png)
+
 However, between t = 2:00:00, the progression of the infection front was less pronounced, and the spatial extent of weakened cells did not change substantially.
 
 ![Alt text](Multiply10_3.png)
+
 Again, we can not observe any significant difference from 2h to 3h, even tho the pathogen seems to be bigger.
 
 ![Alt text](Multiply10_4.png)
+
 In the end, at time = 4:00:00, we can notice a slightly change in color, a more darker one, which can indicate a more intens absortion of the chemical by the cells that were already infested.
