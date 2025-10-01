@@ -4,31 +4,33 @@ When we ran the model for 4 hours, we observed that the pathogen, the red cell o
 Below we can see how the model changes in 4 hours:
 
 t=0:
+
 ![Alt text](time0.png)
+
 First, we notice how the cells are a bright, uniform green, indicating healthy tissue. Initially, the red pathogen is present as a small, localized element on the left edge, and we see no changes in cells distant from the pathogen.
 
+t=1:
 
-
-t=1
 ![Alt text](time1.JPG)
+
 In this image, we see how, immediately after infection, the pathogen began spreading its chemical. The closest cells are already showing a color change toward brown, while the rest of the tissue remains green.
 
-
-
 t=2:
+
 ![Alt text](time2.JPG)
+
 After two hours, the pathogen began to enter the plant tissue, weakening even more surrounding cells.
 
-
-
 t=3:
+
 ![Alt text](time3.JPG)
+
 Now we can notice that the pathogen, in addition to penetrating even further into the plant tissue, has also grown larger, making more and more space between the cells.
 
-
-
 t=4:
+
 ![Alt text](time4.JPG)
+
 After four hours we observe how almost half of the tissue has turned brown and therefore weakened, the pathogen has taken hold among the cells and has become even larger, and even if some cells are still bright green, in a few hours they will also turn brown as the pathogen will continue to release chemicals.
 
 
