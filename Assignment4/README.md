@@ -43,5 +43,6 @@ If the level of the chemical is too low, the cell wall stiffness is maintained a
 # Part 3
 
  Take a look at the cell to cell transport and cell dynamics and complete the sketch.
-
+![Alt text](Exercise3.png)
+From the cell-to-cell transport and cell dynamics we can see how the infection spreads. The pathogen produces chemical C(0), which weakens the stability of the plant cell wall. When the wall is weakened, diffusion rate it becomes faster, while stronger walls slow down diffusion. This means that the chemical spreads more quickly through weakened cells and more slowly through stable ones. As C(0) diffuses to neighbouring cells, their walls are also weakened, allowing the pathogen to gradually spread through the tissue.
 
