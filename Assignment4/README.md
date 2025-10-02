@@ -93,9 +93,94 @@ However, between t = 2:00:00, the progression of the infection front was less pr
 
 ![Alt text](Multiply10_3.png)
 
-Again, we can not observe any significant difference from 2h to 3h, even tho the pathogen seems to be bigger.
+Again, we can not observe any significant difference from 2h to 3h. The pathogen continues to grow while the chemical efections continues to spread slowly and the structure of the weakend cell walls evolve along with it.
 
 
 ![Alt text](Multiply10_4.png)
 
-In the end, at time = 4:00:00, we can notice a slightly change in color, a more darker one, which can indicate a more intens absortion of the chemical by the cells that were already infested.
+In the end, at time = 4:00:00, we can notice a slightly change in color, a more darker one, which can indicate a more intens absortion of the chemical by the cells that were already infested. Furthermore, the 100x increase in diffusion rate did not seem to have a significant impact on the growth of the pathogen itself, as the red cell evolution does not differ much between the 2 aforementioned scenarios.
+
+# Part 5
+One way for the plants to react to such pathogen infestation is by first sensing the increase in pathogen related chemicals and then responding by releasing its own chemicals to help increase their wall stiffness. The key idea is to protect their wall and disallow the pathogen to decrease the stifness and hence drastically increase the pathogen diffusion rate.
+
+Most of the changes happen in (`Function CellHouseKeeping`) & (`Function CellDynamics`). For the purpose of simplicty lets assume this new checmical does not diffuse to the neighboring cells, and so the proces is internal so we won't change (`Function CelltoCellTransport`). I will provide the psuodo code for this defense mechanism alongside the actual c++ code for increased readibility.
+
+
+// Cell HouseKeeping 
+
+    void Assignment::CellHouseKeeping(CellBase *c) {
+        // add cell behavioral rules here
+        if(c->CellType()==2){
+            c->EnlargeTargetArea(2);
+        }
+        // initial cell length setup
+        double base_element_length = 25;
+        c->LoopWallElements([base_element_length](auto wallElementInfo){
+            if(std::isnan(wallElementInfo->getWallElement()->getBaseLength())){
+            wallElementInfo->getWallElement()->setBaseLength(base_element_length);
+            }
+        });
+
+        %%% 
+
+        //cell wall weakening happens here
+        double patho_chem_level = c->Chemical(0) / (0.5);
+
+        %%%  defense_chem_level = c.Chemical(1) <- Define the defense chemical !!!!!!!!!!!!!!!!! CHANGE
+
+        if (patho_chem_level > 1.2) {
+            patho_chem_level = 1.2;
+        }
+        double stiffness_inf = 2.5;
+
+        if(patho_chem_level>0.1 && c->CellType()!=2){
+            c->SetCellVeto(false);
+            stiffness_inf = 2.5 - (patho_chem_level);
+        c->LoopWallElements([stiffness_inf](auto wallElementInfo){
+            wallElementInfo->getWallElement()->setStiffness(current_stiffness);
+        });
+
+
+        %%%                                                             !!!!!!!!!!!!!!!!! CHANGE
+        else if defense_chem_level > 0.1 && c->CellType()!=2{              only non pathogen cells, if defense checmical levels are high
+            stiffness_inf += defense_chem_level                       increase stiffeness
+            c.SetCellVeto(true)                                   disallow growth since cell spends resources on the chemical production
+        }
+        %%%%                                                            !!!!!!!!!!!!!!!!! CHANGE
+
+
+        }
+        else{
+            c->LoopWallElements([stiffness_inf](auto wallElementInfo){
+            wallElementInfo->getWallElement()->setStiffness(stiffness_inf);
+            });
+            c->SetCellVeto(true);
+        }
+    }
+
+// Cell Dynamics
+
+    void Assignment::CellDynamics(CellBase *c, double *dchem) {
+        // add biochemical networks for intracellular reactions here
+        if(c->CellType()==2){
+            dchem[0] = 0.1;
+        }
+        // the fungi is assumed to have a constant chemical level
+        else{
+            // for all other cells, the chemical is degraded:
+            dchem[0] = -0.001 * c->Chemical(0);
+
+
+
+        %%%                                                            !!!!!!!!!!!!!!!!! CHANGE
+            // Production and degradation of defense chemical (Chem(1))
+            If c.Chemical(0) > 0.1:                                         // Plant senses Chem(0) above some  threshold
+                dchem[1] = 0.05                                             // produce Chem(1)
+            Else:
+                dchem[1] = -0.01 * c.Chemical(1) // Chem(1)                 // degrade if no threat
+        %%%                                                            !!!!!!!!!!!!!!!!! CHANGE
+
+
+
+        }
+    }
